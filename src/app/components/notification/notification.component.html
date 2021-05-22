@@ -1,0 +1,168 @@
+<a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+    <i class="la la-bell"></i>
+    <span class="cart-count">2</span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right">
+    <div class="dropdown-cart-products">
+      <div class="product" *ngFor="let item of notification">
+        <div class="product-cart-details">
+          <h4 class="product-title">
+            <a href="product.html">{{item.catalogues.name}}</a>
+          </h4>
+  
+          <!-- <span class="cart-product-info">
+            <span class="cart-product-qty">1</span>
+            x $84.00
+          </span> -->
+        </div><!-- End .product-cart-details -->
+  
+        <figure class="product-image-container">
+          <a href="product.html" class="product-image">
+            <img src="{{ apiUrl }}/{{item.catalogues.photo}}" alt="product">
+          </a>
+        </figure>
+        <a (click)="deletenotification(item._id)" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
+      </div><!-- End .product -->
+  
+      <!-- End .product -->
+    </div><!-- End .cart-product -->
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- <div class="dropdown-menu dropdown-menu-right">
+    <div class="dropdown-cart-products">
+      <div class="product">
+        <div class="product-cart-details">
+          <h4 class="product-title">
+            <a href="product.html">Beige knitted elastic runner shoes</a>
+          </h4>
+          <span class="cart-product-info">
+            <span class="cart-product-qty">1</span>
+            x $84.00
+          </span>
+        </div>
+        <figure class="product-image-container">
+          <a href="product.html" class="product-image">
+            <img src="../../assets/images/products/cart/product-1.jpg" alt="product">
+          </a>
+        </figure>
+        <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
+      </div>
+      <div class="product">
+        <div class="product-cart-details">
+          <h4 class="product-title">
+            <a href="product.html">Blue utility pinafore denim dress</a>
+          </h4>
+          <span class="cart-product-info">
+            <span class="cart-product-qty">1</span>
+            x $76.00
+          </span>
+        </div>
+        <figure class="product-image-container">
+          <a href="product.html" class="product-image">
+            <img src="../../assets/images/products/cart/product-2.jpg" alt="product">
+          </a>
+        </figure>
+        <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
+      </div>
+    </div>
+    <div class="dropdown-cart-total">
+      <span>Total</span>
+      <span class="cart-total-price">$160.00</span>
+    </div>
+    <div class="dropdown-cart-action">
+      <a href="cart.html" class="btn btn-primary">View Cart</a>
+      <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i
+          class="icon-long-arrow-right"></i></a>
+    </div>
+  </div>
+  <!--<div class="cart-wrapper">
+    <div class="checkout">
+      <div class="clearfix">
+        <div class="row" *ngFor="let item of notifications;let i=index">
+            <div class="cart-block cart-block-item clearfix">
+              <div class="image">
+                <a  *ngIf="item.catalogues.photo!='undefined'"><img src="{{ apiUrl }}/{{item.catalogues.photo}}" alt="" /></a>
+              </div>
+              <div class="title">
+                <div>
+                  <a >{{item.name}}</a>
+                </div>
+                <div ><a >{{item.catalogues.name}}</a></div>
+                <small>{{item.catalogues.description}}</small>
+              </div>
+              <div class="quantity">
+              <input
+                type="number"
+                value="2"
+                class="form-control form-quantity"
+              />
+            </div>
+              <div class="price">
+                <span class="final">$ 1.998</span>
+                <span class="discount">$ 2.666</span>
+              </div>
+              <span class="icon icon-cross icon-delete" (click)="deletenotifications(item._id)"></span>
+            </div>
+          </div>
+          <hr />
+          <div class="clearfix">
+            <div class="cart-block cart-block-footer clearfix">
+              <div>
+                <strong>Discount 15%</strong>
+              </div>
+              <div>
+                <span>$ 159,00</span>
+              </div>
+            </div>
+            <div class="cart-block cart-block-footer clearfix">
+              <div>
+                <strong>Shipping</strong>
+              </div>
+              <div>
+                <span>$ 30,00</span>
+              </div>
+            </div>
+            <div class="cart-block cart-block-footer clearfix">
+              <div>
+                <strong>VAT</strong>
+              </div>
+              <div>
+                <span>$ 59,00</span>
+              </div>
+            </div>
+          </div>
+          <hr />
+           <div class="clearfix">
+            <div class="cart-block cart-block-footer clearfix">
+              <div>
+                <strong>Total</strong>
+              </div>
+              <div>
+                <div class="h4 title">$ 1259,00</div>
+              </div>
+            </div>
+          </div>
+          <div class="cart-block-buttons clearfix">
+            <div class="row">
+              <div class="col-xs-6">
+                <a href="products-grid.html" class="btn btn-clean-dark">Tu peux ajouter quelque catalogues au notifications</a>
+              </div>
+              <div class="col-xs-6 text-right">
+                <a href="checkout-1.html" class="btn btn-main"><span class="icon icon-cart"></span> Checkout</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->

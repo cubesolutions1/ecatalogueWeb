@@ -1,0 +1,36 @@
+<section class="products" style="margin: 30px 100px;">
+  <header class="hidden">
+    <h3 class="h3 title">Product category grid</h3>
+  </header>
+  <div class="row row-clean">
+    <div class="col-xs-6 col-sm-4 col-lg-3" *ngFor="let item of categories | slice:0:i;">
+      <article style="border:none;">
+        <div class="figure-grid">
+          <div class="" style="height: 220px">
+            <a class="mfp-open"> </a>
+          </div>
+          <div class="text">
+            <h2 class="title h4">
+              <img
+                src="../../assets/assets/images/{{ item.photo }}"
+                alt=""
+                width=""
+              />
+              <a  style="color: black">{{
+                item.name
+              }}</a>
+            </h2>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="wrapper-more" *ngIf="i==4" >
+    <a  class="btn btn-lg" (click)="afficherplus()">Afficher plus</a>
+  </div>
+  <div class="wrapper-more" *ngIf="i>4" >
+    <a  class="btn btn-lg" (click)="afficherMoins()">Afficher Moins</a>
+  </div>
+  <hr>
+  <hr>
+</section>

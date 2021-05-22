@@ -1,0 +1,171 @@
+<header class="header mt-2">
+
+
+  <div class="header-middle sticky-header">
+    <div class="container mb-2 " >
+      <div class="header-left">
+        <button class="mobile-menu-toggler">
+          <span class="sr-only">Toggle mobile menu</span>
+          <i class="icon-bars"></i>
+        </button>
+
+        <a [routerLink]="['/']"  class="">
+          <img src="../../assets/icon.png" alt="Molla Logo" width="105" height="25">
+        </a>
+
+        <nav class="main-nav">
+          <ul class="menu sf-arrows">
+            <li class="megamenu-container " *ngFor="let item of items"
+              [class.active]="selectedPath===item.url? 'active':''">
+              <a [routerLink]="item.url" style="padding:0 10px;">{{item.name}}</a>
+
+              <!-- End .megamenu -->
+            </li>
+
+
+
+
+          </ul><!-- End .menu -->
+        </nav><!-- End .main-nav -->
+      </div><!-- End .header-left -->
+
+      <div class="header-right">
+        <!-- <div class="header-search">
+          <div class=" cart-dropdown" >
+            <a   class="search-toggle" role="button" title="Search">
+                   <i class="icon-search" *ngIf="!searchItem.value "></i>
+                  </a>
+                  <div class="spinner-border" role="status" *ngIf="searchItem.dirty && searchItem.value && !(catalogues | async)?.data ">
+                  </div>
+
+            <form >
+              <div class="header-search-wrapper">
+                <label for="q" class="sr-only">Search</label>
+                <input type="search" class="form-control"  placeholder="Search in..."
+                       (keyup)="searchKeyUp($event)"
+                       [formControl]="searchItem">
+                <div class="dropdown-menu dropdown-menu-right" >
+
+                </div>
+              </div>
+
+            </form>
+
+         </div>
+
+        </div> -->
+
+        <div style="position: absolute;
+                    right: 52px;
+                    z-index: 2;
+                    width: 250px;
+                    top: 50px;"
+                    >
+
+
+            <div class="row" *ngIf="searchItem.value">
+              <div class="col-12 col-sm-12 col-lg-12" style=" width: 100%;" *ngFor="let cat of (catalogues | async)?.data">
+
+                <ul class="list-group" style="width: 100%;">
+                  <li class="list-group-item d-flex justify-content-between align-items-center"   >
+                    <span  [hidden]="loading">{{cat.name}}</span>
+
+                    <div class="image-parent" style="   width:45px;">
+                        <img src="{{apiUrl}}Catalogues/{{cat.photo}}"
+                             class="img-fluid"
+                             [hidden]="loading"
+                             #img
+                             (error)="img.src = 'assets/assets/images/grey.jpg'"
+                             (load)="onLoad()">
+
+                    </div>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center" *ngIf="loading">
+                    <div  style="width:150px;">
+
+                      <app-skeleton    Cwidth="100%" Cheight="10px" ></app-skeleton>
+                    </div>
+
+                    <div class="image-parent" style="   width:45px;">
+
+                      <app-skeleton    Cwidth="100%" Cheight="60px" ></app-skeleton>
+                    </div>
+                  </li>
+
+
+                </ul>
+              </div>
+              <div class="col-12 col-sm-12 col-lg-12" style=" width: 100%;" *ngIf=" searchItem.value && (catalogues | async)?.data.length == 0">
+
+                <ul class="list-group" style="width: 100%;">
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                   <p>Aucun élément trouvé<p>
+
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        <!-- <app-favoris></app-favoris> -->
+        <!-- <div class="dropdown cart-dropdown">
+          <a href="" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false" data-display="static" class="dropdown-toggle">
+          <i class="icon-heart-o"></i>
+          <span class="cart-count">2</span>
+        </a>
+      </div> -->
+        <div class="dropdown cart-dropdown" *ngIf="user">
+          <app-favoris *ngIf="user"></app-favoris>
+        </div>
+        <div class="dropdown cart-dropdown" *ngIf="user">
+          <!-- <a class="dropdown-toggle">
+            <i class="la la-bell"></i>
+            <span class="cart-count">2</span>
+          </a> -->
+          <app-notification></app-notification>
+        </div>
+        <div class="dropdown cart-dropdown">
+          <a class="dropdown-toggle" *ngIf="user" (click)="logout()">
+            <i class="la la-sign-out"></i>
+            <!-- <span class="cart-count">2</span> -->
+          </a>
+          <a class="dropdown-toggle" *ngIf="!user" href="#signin-modal" data-toggle="modal">
+            <!-- <i class="icon-user"></i> -->
+            <p>Inscription/Connexion</p>
+            <!-- <span class="cart-count">2</span> -->
+          </a>
+        </div>
+        <!-- <app-favoris></app-favoris> -->
+        <!-- End .dropdown-menu -->
+      </div><!-- End .cart-dropdown -->
+    </div><!-- End .header-right -->
+  </div><!-- End .container -->
+  <!-- </div> -->
+  <div class="header-bottom sticky-header" style="background-color: #efefef;color:black;    overflow: auto;">
+    <div class="container-fluid" style="margin-left: auto;margin-right: initial;">
+      <div class="row" style="width: 100%;">
+           <div class="col col-lg-12 col-xl-12 col-xxl-12 float-right">
+          <nav class="main-nav scrolling-wrapper" style="    width: 100%;
+          text-align: -webkit-center;">
+            <ul class="menu sf-arrows " style="line-height: 2;     margin-left: auto;
+            margin-right: auto;
+            display: block;
+            ">
+              <li class="megamenu-container " *ngFor="let item of categories ">
+                <a  [routerLink]="['/catalogues/' + item._id+'/'+item.name]" class="text-dark"
+                  style="padding:8px 0 5px 16px">{{item.name}}</a>
+                <!-- <a href="/catalogues/{{item._id}}/{{item.name}}" class="text-dark"
+                  style="padding:8px 0 5px 16px">{{item.name}}</a> -->
+
+                <!-- End .megamenu -->
+              </li>
+
+            </ul><!-- End .menu -->
+          </nav><!-- End .main-nav -->
+        </div><!-- End .col-xl-9 col-xxl-10 -->
+
+
+      </div><!-- End .row -->
+    </div><!-- End .container-fluid -->
+  </div>
+</header>

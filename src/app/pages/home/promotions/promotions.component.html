@@ -1,0 +1,36 @@
+<main class="main">
+  <!-- <div class="page-content"> -->
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-6 col-lg-6 col-sm-12"  >
+          <div class="banner">
+            <a  class="banniere" >
+              <img (click)="viewEvent(bannieres.id)" #img (error)="img.src = '../../../assets/assets/images/grey.jpg'"
+              src="{{apiUrl}}{{banniere1[0]?.photo}}" alt="{{banniere1[0]?.name}}">
+            </a>
+            <!-- <div class="banner-content">
+              <h4 class="banner-subtitle">Quisque a lectus</h4>
+              <h3 class="banner-title">Praesent elementum <br>hendrerit tortor.</h3>
+              <a href="" class="banniere" class="banner-link">Click here</a>
+            </div> -->
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+          <div class="banner">
+            <a  class="banniere" >
+              <img  (click)="viewEvent(bannieres.id)" #img (error)="img.src = '../../../assets/assets/images/grey.jpg'"
+              src="{{apiUrl}}{{banniere2[0]?.photo}}" alt="{{banniere2[0]?.name}}">
+            </a>
+             <!-- <div class="banner-content">
+              <h4 class="banner-subtitle">Quisque a lectus</h4>
+              <h3 class="banner-title">Donec consectetuer <br>ligula vulputate.</h3>
+              <a href="#" class="banner-link">Click here</a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+
+</main>

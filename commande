@@ -1,0 +1,263 @@
+npm i httpclient
+npm i moment
+
+
+
+// nodejs
+npm i cors
+npm i express-rate-limit
+
+
+
+<div class="page-loader"></div>
+
+<div class="wrapper">
+  <!-- ======================== Navigation ======================== -->
+
+  <app-navbar></app-navbar>
+
+  <!-- ========================  Main header ======================== -->
+
+  <section
+    class="main-header"
+    style="background-image: url(../../assets/assets/images/gallery-2.jpg)"
+  >
+    <header>
+      <div class="container text-center">
+        <!-- <h2 class="h2 title">Customer page</h2> -->
+        <ol class="breadcrumb breadcrumb-inverted">
+          <li>
+            <a href="index.html"><span class="icon icon-home"></span></a>
+          </li>
+          <li><a class="active" href="login.html">Login & Inscription</a></li>
+        </ol>
+      </div>
+    </header>
+  </section>
+
+  <!-- ========================  Login & register ======================== -->
+
+  <section class="login-wrapper login-wrapper-page">
+    <div class="container">
+      <header class="hidden">
+        <h3 class="h3 title">Sign in</h3>
+      </header>
+
+      <div class="row">
+        <!-- === left content === -->
+
+        <div class="col-md-6 col-md-offset-3">
+          <!-- === login-wrapper === -->
+
+          <div class="login-wrapper">
+            <div class="white-block">
+              <!--signin-->
+
+              <div class="login-block login-block-signin">
+                <div class="h4">
+                  Connexion!
+                  <a
+                    href="javascript:void(0);"
+                    class="btn btn-main btn-xs btn-register pull-right"
+                    >Inscrivez vous!</a
+                  >
+                </div>
+
+                <hr />
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        value=""
+                        class="form-control"
+                        placeholder="Email"
+                        [(ngModel)]="user.email"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input
+                        type="password"
+                        value=""
+                        class="form-control"
+                        placeholder="Password"
+                        [(ngModel)]="user.password"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-xs-6">
+                    <span class="checkbox">
+                      <input type="checkbox" id="checkBoxId3" />
+                      <label for="checkBoxId3">Remember me</label>
+                    </span>
+                  </div>
+
+                  <div class="col-xs-6 text-right">
+                    <a (click)="onLogin()" class="btn btn-main">Valider</a>
+                  </div>
+                </div>
+              </div>
+              <!--/signin-->
+              <!--signup-->
+              <div class="alert alert-{{ color }}" role="alert" *ngIf="error">
+                {{ error | uppercase }}! <br />
+                <p>{{ description }}</p>
+              </div>
+              <div class="login-block login-block-signup">
+                <div class="h4">
+                  S'inscrire
+                  <a
+                    href="javascript:void(0);"
+                    class="btn btn-main btn-xs btn-login pull-right"
+                    >Connexion</a
+                  >
+                </div>
+
+                <hr />
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        value=""
+                        class="form-control"
+                        placeholder="First name: *"
+                        [(ngModel)]="user.name"
+                        name="name"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input
+                        type="password"
+                        value=""
+                        class="form-control"
+                        placeholder="Password"
+                        [(ngModel)]="user.password"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input
+                        type="password"
+                        value=""
+                        class="form-control"
+                        placeholder="Confirmer Password"
+                        [(ngModel)]="user.passwordConfirm"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        value=""
+                        [(ngModel)]="user.company"
+                        class="form-control"
+                        placeholder="Company name:"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        value=""
+                        class="form-control"
+                        placeholder="Zip code: *"
+                        [(ngModel)]="user.codepostale"
+                        name="codepostale"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-8">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        value=""
+                        class="form-control"
+                        placeholder="City: *"
+                        name="city"
+                        [(ngModel)]="user.city"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        value=""
+                        class="form-control"
+                        placeholder="Email: *"
+                        [(ngModel)]="user.email"
+                        name="email"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        value=""
+                        class="form-control"
+                        placeholder="Phone: *"
+                        [(ngModel)]="user.phone"
+                        name="phone"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- <div class="col-md-12">
+                    <hr />
+                    <span class="checkbox">
+                      <input type="checkbox" id="checkBoxId1" />
+                      <label for="checkBoxId1"
+                        >I have read and accepted the <a href="#">terms</a>, as
+                        well as read and understood our terms of
+                        <a href="#">business contidions</a></label
+                      >
+                    </span>
+                    <span class="checkbox">
+                      <input type="checkbox" id="checkBoxId2" />
+                      <label for="checkBoxId2"
+                        >Subscribe to exciting newsletters and great tips</label
+                      >
+                    </span>
+                    <hr />
+                  </div> -->
+
+                  <div class="col-md-12">
+                    <a (click)="onRegister()" class="btn btn-main btn-block"
+                      >Create account</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <!--/signup-->
+            </div>
+          </div>
+          <!--/login-wrapper-->
+        </div>
+        <!--/col-md-6-->
+      </div>
+    </div>
+  </section>
+
+  <!-- ================== Footer  ================== -->
+
+  <app-footer></app-footer>
+</div>
+<!--/wrapper-->
+

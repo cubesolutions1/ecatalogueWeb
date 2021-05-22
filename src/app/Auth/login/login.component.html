@@ -1,0 +1,128 @@
+
+
+    <!-- <div class="page-loader"></div> -->
+
+    <div class="wrapper">
+
+        <!-- ======================== Navigation ======================== -->
+
+        <app-navbar></app-navbar>
+
+
+        <!-- ========================  Main header ======================== -->
+
+        <section class="main-header" style="background-image:url(../../assets/assets/images/gallery-2.jpg)">
+          <header>
+            <div class="container text-center">
+              <h2 class="h2 title">Connexion</h2>
+              <ol class="breadcrumb breadcrumb-inverted">
+                <!-- <li><a href="index.html"><span class="icon icon-home"></span></a></li> -->
+                <!-- <li><a class="active" href="login.html">Inscription</a></li> -->
+              </ol>
+            </div>
+          </header>
+        </section>
+
+        <!-- ========================  Login & register ======================== -->
+
+        <section class="login-wrapper login-wrapper-page">
+            <div class="container">
+
+                <header class="hidden">
+                    <h3 class="h3 title">Sign in</h3>
+                </header>
+
+                <div class="row">
+
+                    <!-- === left content === -->
+
+                    <div class="col-md-6 col-md-offset-3">
+
+                        <!-- === login-wrapper === -->
+
+                        <div class="login-wrapper">
+
+                            <div class="white-block">
+
+                                <!--signin-->
+
+                                <!-- <div class="login-block login-block-signin"> -->
+                                  <div class="h4">
+
+                                    <a
+                                    [routerLink]="['/register']"
+                                      
+                                      class="btn btn-main btn-xs btn-register pull-right"
+                                      >Inscrivez vous!</a
+                                    >
+                                  </div>
+
+                                  <hr />
+
+                                  <div class="row">
+
+                                    <div class="col-md-12">
+                                      <div class="form-group">
+                                        <input
+                                          type="email"
+
+                                          class="form-control"
+                                          placeholder="Email"
+                                          [(ngModel)]="user.email"
+                                        />
+                                      </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                      <div class="form-group">
+                                        <input
+                                          [type]="password"
+                                          (change)="afficherPAssword()"
+                                          class="form-control"
+                                          placeholder="Mot de passe"
+                                          [(ngModel)]="user.password"
+                                        />
+                                      </div>
+                                    </div>
+
+                                    <div class="col-xs-6">
+                                      <span class="checkbox">
+                                        <input type="checkbox" id="checkBoxId3" />
+                                        <label for="checkBoxId3">Se souvenir de moi</label>
+                                      </span>
+                                    </div>
+
+                                    <div class="col-xs-6 text-right">
+                                      <a type="submit" (click)="onLogin()" class="btn btn-main">Valider</a>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!--/signin-->
+                                <!--signup-->
+                                <div class="alert alert-{{ color }}" role="alert" *ngIf="error">
+                                  {{ error | uppercase }}! <br />
+                                  <p>{{ description }}</p>
+                                </div>
+                                <!-- <div class="login-block login-block-signup"> -->
+
+
+                                  <hr />
+
+
+                                </div>
+                                 <!--/signup-->
+                            </div>
+                        </div> <!--/login-wrapper-->
+                    </div> <!--/col-md-6-->
+
+                <!-- </div> -->
+
+            <!-- </div> -->
+        </section>
+
+        <!-- ================== Footer  ================== -->
+
+        <app-footer></app-footer>
+
+    </div> <!--/wrapper-->
+

@@ -1,0 +1,297 @@
+<div class="container" style="width:1910px;">
+  <div class="row">
+    <footer class="footer">
+      <!--       <div class="footer-middle border-0" style="background-color: #EaEaEA;">
+        <div class="container-fluid">
+          <h1 class="widget-title">Rechercher par aliments</h1>
+          <div class="row">
+             <div class="col-sm-4 col-lg-6">
+              <div class="widget">
+                <h4 class="widget-title">Produits recherchés</h4>
+                <div class="row">
+                  <div class="col-sm-4 col-lg-6">
+                    <ul class="widget-list">
+                      <ul *ngFor="let item of products | slice:0:8;">
+                        <li><a href="/detailproduit/{{item._id}}">{{item.name}}</a></li>
+
+                      </ul>
+                    </ul>
+                  </div>
+                  <div class="col-sm-4 col-lg-6">
+                    <ul class="widget-list">
+                      <ul *ngFor="let item of products | slice:8:16;">
+                        <li><a href="/detailproduit/{{item._id}}">{{item.name}}</a></li>
+
+                         <li><a href="#">Fromage</a></li>
+                      </ul>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>-->
+      <!-- <div class="col-sm-4 col-lg-6">
+              <div class="widget">
+                <h4 class="widget-title">Enseignes recherchées</h4>
+                <div class="row">
+                  <div class="col-sm-4 col-lg-6">
+                    <ul class="widget-list">
+                      <ul *ngFor="let item of enseignes | slice:0:8;">
+                        <li><a href="/catalogues/{{item.id}}/enseigne/{{item.name}}">{{item.name}}</a></li>
+
+                      </ul>
+                    </ul>
+                  </div>
+                  <div class="col-sm-4 col-lg-6">
+                    <ul class="widget-list">
+                      <ul *ngFor="let item of enseignes | slice:8:16;">
+                        <li><a href="/catalogues/{{item.esneigne}}/enseigne/{{item.name}}">Nutella</a></li>
+
+                         <li><a href="#">Fromage</a></li>
+                      </ul>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>-->
+      <div class="footer-middle border-0" style="background-color: #f1f1f1;">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-4 col-lg-4">
+              <div class="widget">
+                <h4 class="widget-title">Catégories</h4><!-- End .widget-title -->
+                <div class="row">
+                  <div class="col-sm-4 col-lg-6">
+
+                    <ul class="widget-list" *ngFor="let item of categories | slice:0:8;">
+                      <li><a [routerLink]="['/catalogues/' + item.id+'/'+item.name]"
+                          style="text-transform: capitalize;">{{item.name | lowercase}}</a></li>
+
+                    </ul><!-- End .widget-list -->
+                  </div><!-- End .widget -->
+                  <div class="col-sm-4 col-lg-6">
+
+                    <ul class="widget-list" *ngFor="let item of categories | slice:8:16">
+                      <li><a [routerLink]="['/catalogues/' + item.id+'/'+item.name]"
+                          style="text-transform: capitalize;">{{item.name | lowercase}}</a></li>
+                      <!-- <li><a href="#">Parfum</a></li> -->
+
+                    </ul><!-- End .widget-list -->
+                  </div><!-- End .widget -->
+                </div><!-- End .widget -->
+              </div><!-- End .widget -->
+            </div><!-- End .col-sm-4 col-lg-2 -->
+            <div class="col-sm-4 col-lg-4">
+              <div class="widget">
+                <h4 class="widget-title">Enseignes recherchées</h4><!-- End .widget-title -->
+                <div class="row">
+                  <div class="col-sm-4 col-lg-6">
+
+                    <ul class="widget-list" *ngFor="let item of enseignes | slice:0:8;">
+                      <li><a [routerLink]="['/catalogues/' + item.id+'/enseigne/'+item.name]"
+                          style="text-transform: capitalize;">{{item.name | lowercase}}</a></li>
+
+                    </ul>
+                  </div><!-- End .widget -->
+                  <div class="col-sm-4 col-lg-6">
+
+                    <ul class="widget-list" *ngFor="let item of enseignes | slice:8:16;">
+                      <li><a [routerLink]="['/catalogues/' + item.id+'/enseigne/'+item.name]"
+                          style="text-transform: capitalize;">{{item.name | lowercase }}</a></li>
+
+                    </ul>
+                  </div><!-- End .widget -->
+                </div><!-- End .widget -->
+              </div><!-- End .widget -->
+            </div><!-- End .col-sm-4 col-lg-2 -->
+            <div class="col-sm-4 col-lg-4">
+              <div class="">
+                <h4 class="widget-title">Contact</h4><!-- End .widget-title -->
+                <div class="row">
+                  <div class="col-sm-4 col-lg-12">
+
+                    <ul class="widget-list">
+                      <li><a href="#"><i class="icon icon-map-marker"></i> Immeuble Anita et Léon Laouchez, 97200
+                          Fort-De-France, Martinique
+
+                        </a></li>
+                      <li><a href="tel:#"><i class="icon icon-phone"></i> +596 596 42 78 47</a></li>
+                      <li><a href="mailto:#"><i class="icon icon-envelope"></i> neod@distridiffusion.fr</a></li>
+
+                    </ul><!-- End .widget-list -->
+                  </div><!-- End .widget -->
+
+                </div><!-- End .widget -->
+              </div><!-- End .widget -->
+              <!-- <div class=" ">
+                <h5>Inscrivez-vous à notre newsletter</h5>
+                <p>Ajouter votre adresse e-mail pour vous inscrire à nos e-mails mensuels et recevoir des offres
+                  promotionnelles</p>
+
+                <div class="">
+                  <div class="row">
+
+                    <div class="col-sm-6 col-md-8">
+
+                      <div class="form-group form-newsletter">
+                        <input class="form-control mb-1" type="text" name="email" value=""
+                          placeholder="Adresse email" />
+                        <input type="submit" class="btn btn-main btn-primary btn-sm" value="S'inscrire" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+            </div><!-- End .col-sm-4 col-lg-2 -->
+
+            <!-- End .col-sm-4 col-lg-2 -->
+          </div><!-- End .row -->
+        </div><!-- End .container-fluid -->
+      </div><!-- End .footer-middle -->
+
+      <div class="footer-bottom">
+        <div class="container-fluid">
+          <p class="footer-copyright">Copyright © {{dateNow |  date  : 'yyyy'}} Tous les droits sont réservés.</p>
+          <!-- End .footer-copyright -->
+          <div class="social-icons social-icons-color">
+            <span class="social-label"></span>
+            <a href="https://www.facebook.com/neodbydd" class="social-icon social-facebook" title="Facebook" target="_blank"><i
+                class="icon-facebook-f"></i></a>
+            <a href="http://www.linkedin.com/in/neod-by-dd-30b09320b" class="social-icon social-twiter" title="Linkdin"
+             target="_blank"><i
+                class="icon-linkedin"></i></a>
+            <a href="https://www.instagram.com/neod_by_dd/" class="social-icon social-instagram" title="Instagram" target="_blank"><i
+                class="icon-instagram"></i></a>
+            <!-- <a href="#" class="social-icon social-youtube" title="Youtube" target="_blank"><i
+                class="icon-youtube"></i></a>
+            <a href="#" class="social-icon social-pinterest" title="Pinterest" target="_blank"><i
+                class="icon-pinterest"></i></a> -->
+          </div><!-- End .soial-icons -->
+        </div><!-- End .container-fluid -->
+      </div><!-- End .footer-bottom -->
+    </footer>
+  </div>
+</div>
+<!-- <footer>
+
+  <div class="footer-showroom hidden">
+    <div class="row">
+      <div class="col-sm-8">
+        <h2>Visit our showroom</h2>
+        <p>200 12th Ave, New York, NY 10001, USA</p>
+        <p>
+          Mon - Sat: 10 am - 6 pm &nbsp; &nbsp; | &nbsp; &nbsp; Sun: 12pm - 2 pm
+        </p>
+      </div>
+      <div class="col-sm-4 text-center">
+        <a href="#" class="btn btn-clean"
+          ><span class="icon icon-map-marker"></span> Get directions</a
+        >
+        <div class="call-us h4">
+          <span class="icon icon-phone-handset"></span> 333.278.06622
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="footer-links">
+    <div class="row">
+      <div class="col-sm-4 col-md-4">
+        <h5>Catalogues</h5>
+        <div class="row">
+          <div class="col-sm-6 col-md-6">
+            <ul>
+              <li><a href="#">Sport</a></li>
+              <li><a href="#">Electronique</a></li>
+              <li><a href="#">Cosmétique</a></li>
+              <li><a href="#">Mode</a></li>
+              <li><a href="#">Bijoux</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-6 col-md-6">
+            <ul>
+              <li><a href="#">Beauté</a></li>
+              <li><a href="#">Parfum</a></li>
+              <li><a href="#">Hypermerché</a></li>
+              <li><a href="#">Aménagements</a></li>
+              <li><a href="#">Alimentaire</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-4">
+        <h5>Contact</h5>
+        <div class="row">
+          <div class="col-sm-6 col-md-6">
+            <ul>
+              <li>
+                <a href="#"><i class="fa fa-map-marker"></i> </a> Adresse
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-phone"></i> </a> +216 2659856985
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-envelope"></i> </a>
+                cubesolutions@hotmail.com
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4">
+        <h5>Inscrivez-vous à notre newsletter</h5>
+        <p>
+          <i>Ajouter votre adresse e-mail pour vous </i>
+        </p>
+        <div class="form-group form-newsletter">
+          <input
+            class="form-control"
+            type="text"
+            name="email"
+            value=""
+            placeholder="Email address"
+          />
+          <input type="submit" class="btn btn-main btn-sm" value="Subscribe" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+
+      <div class="footer-social">
+        <div class="row">
+          <div class="col-sm-6">
+            <a href="#" target="_blank"
+              ><i class="fa "></i> Cube Solutions</a
+            >
+            &nbsp; | &nbsp; <a href="#">Copyright</a> &nbsp; | &nbsp;
+            <a href="#">@2020</a>
+          </div>
+          <div class="col-sm-6 links">
+            <ul>
+              <li>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-google-plus"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer> -->

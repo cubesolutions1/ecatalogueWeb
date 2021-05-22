@@ -1,0 +1,284 @@
+<div class="bg-white ">
+  <div class="container">
+    <div class="">
+      <div class="container-fluid">
+        <h3 class=" text-center mb-5 mt-2">Vos nouveaux catalogues </h3><!-- End .title mb-2 -->
+        <hr>
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-lg-4">
+
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <h3 class="banner-title"></h3><!-- End .banner-title -->
+          </div><!-- End .col-md-6 -->
+          <!-- <div class="col-md-6 col-lg-4 "> -->
+          <div class="container-fluid">
+            <div class="toolbox">
+              <div class="toolbox-left ml-5 pl-5">
+
+                <!-- <h1 class="title text-center "> -->
+                <pagination-controls class="my-pagination" id="listing_pagination" (pageChange)="page=$event"
+                  maxSize="8" directionLinks="true" autoHide="true" responsive="true" previousLabel="" nextLabel=""
+                  screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+                  screenReaderCurrentLabel="You're on page">
+                </pagination-controls>
+                <!-- End .title mb-2 -->
+                <!-- </h1> -->
+              </div>
+              <!-- End .toolbox-left -->
+
+              <!-- <div class="toolbox-center">
+                    <div class="toolbox-info">
+                      Showing <span>12 of 56</span> Products
+                    </div>
+                  </div> -->
+              <!-- End .toolbox-center -->
+
+              <div class="toolbox-right ">
+                <div class="toolbox-sort">
+                  <label for="sortby">Afficher par:</label>
+                  <div class="select-custom pl-2 pr-2 ml-2 mr-2">
+                    <select id="sortby" name="categories" id="categories" class="form-control"
+                      (change)="onChangeName($event)">
+
+
+                      <option placeholder="Séléctionner votre catégorie" disabled value="">Catégorie</option>
+                      <option value="">Afficher tout</option>
+                      <option *ngFor="let categorie of categories" [value]="categorie._id"
+                        style="text-transform: capitalize;" class="">{{ categorie.name | lowercase }}
+                      </option>
+                    </select>
+
+                  </div>
+                  <div class="select-custom">
+                    <select id="enseigne" class="form-control" (change)="onChangeName($event)">
+                      <option value="" disabled>Enseigne</option>
+                      <option value="">Afficher tout</option>
+
+                      <option [value]="enseigne._id" id="enseigneid" class="" style="text-transform: capitalize;"
+                        *ngFor="let enseigne of enseignes">{{
+                        enseigne.name | lowercase }}
+                      </option>
+                    </select>
+                  </div>
+                </div><!-- End .toolbox-sort -->
+              </div><!-- End .toolbox-right -->
+            </div>
+            <!-- <div class="container"> -->
+          </div>
+          <!-- </div> -->
+        </div>
+        <div class="tab-content tab-content-carousel">
+          <div class="games-soon">
+
+            <div class="products">
+              <div class="row  ">
+                <div class="col-lg-12 col-md-12  justify-content-md-center" *ngIf="empty ">
+                  <div style="margin: 8em;">
+                    <h3>Aucun élément n'est ajouté pour le moment !
+                    </h3>
+                  </div>
+
+
+                </div>
+                <div class="col-lg-2 col-md-3" *ngFor="let catalogue of catalogues |  paginate:{id:'listing_pagination',
+                      itemsPerPage:12,currentPage:page,totalItems:totalRecords};let i=index ;
+                      ">
+                  <div class="product">
+                    <figure class="product-media">
+                      <!-- <span class="product-label label-sale">Sale</span> -->
+                      <a href="{{apiUrl}}deploy/pdf_flipbook.html?name={{catalogue.pdf}}" target="_blank">
+                        <img src="{{apiUrl}}Catalogues/{{catalogue.photo}}" alt="Product image"
+                          (click)="clickevent(catalogue._id)"
+                          (error)="img.src = '../../assets/assets/images/grey.jpg'"
+                          (mouseover)="viewEvent(catalogue._id,i,catalogue.commercant)" class="product-image" #img>
+
+                      </a>
+                      <!-- <img [src]="apiUrl+'/'+catalogue.photo" data-rel="fh5-light-box-demo"
+                        data-href="'http://localhost:3112/pdf/index.html?produit='+catalogue.pdf"
+                        data-width="700" data-height="400" data-title="Ecatalogue"> -->
+                      <div class="product-action-vertical">
+                        <a *ngIf="user!=null" (click)="addFavoris(catalogue._id)" class="btn-product-icon btn-wishlist"
+                          title="Add to Wishlist"><span>Ajouter au
+                            favoris</span></a>
+                        <!-- <a [routerLink]="['/pdf/' + catalogue._id]" routerLinkActive="router-link-active"
+                          target="_blank" class="btn-product-icon btn-quickview" title="Add to Wishlist"><span>Afficher
+                            pdf</span></a> -->
+                      </div><!-- End .product-action-vertical -->
+
+
+                    </figure><!-- End .product-media -->
+
+                    <div class="product-body">
+                      <div class="product-cat">
+                        <a>
+                          <h5 class="product-title"><strong>{{catalogue.name }}</strong></h5>
+                        </a>
+                      </div><!-- End .product-cat -->
+                      <h1 class="product-title"><a>{{catalogue.description | slice:0:50}}...</a></h1>
+                      <!-- End .product-title -->
+                      <!-- <div class="product-price">
+                    <span class="new-price">$24.00</span>
+                    <span class="old-price">Was $59.99</span>
+                  </div> -->
+                      <!-- End .product-price -->
+                    </div><!-- End .product-body -->
+                  </div>
+                  <!-- End .product -->
+                </div><!-- End .col-sm-6 col-md-4 -->
+                <!-- End .col-sm-6 col-md-4 -->
+              </div><!-- End .row -->
+
+
+            </div><!-- End .products -->
+          </div><!-- End .col-lg-7 -->
+          <!-- <div class="mb-lg-5"></div> -->
+          <!-- End .mb-lg-2 -->
+        </div><!-- End .row -->
+        <div class="">
+          <div class="container">
+            <div class="toolbox-left ml-5 pl-5">
+
+              <!-- <h1 class="title text-center "> -->
+              <pagination-controls class="my-pagination" id="listing_pagination" (pageChange)="page=$event" maxSize="8"
+                directionLinks="true" autoHide="true" responsive="true" previousLabel="" nextLabel=""
+                screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+                screenReaderCurrentLabel="You're on page">
+              </pagination-controls>
+              <!-- End .title mb-2 -->
+              <!-- </h1> -->
+            </div>
+            <!-- <h1 class="title text-center ">
+              <pagination-controls class="my-pagination" id="listing_pagination" (pageChange)="page=$event" maxSize="8"
+                directionLinks="tue" autoHide="true" responsive="true" previousLabel="" nextLabel=""
+                screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+                screenReaderCurrentLabel="You're on page">
+              </pagination-controls>
+
+
+            </h1> -->
+
+          </div>
+        </div>
+      </div>
+
+      <!-- .End .tab-pane -->
+      <!-- .End .tab-pane -->
+      <!-- .End .tab-pane -->
+
+    </div><!-- End .bg-light pt-4 pb-4 -->
+
+
+
+
+
+    <!-- <section class="owl-icons-wrapper">
+  <header class="">
+
+    <div class="text-center">
+      <h2 class="title">Catalogues en promotion</h2>
+    </div>
+  </header>
+  <div class="filters filters-top">
+    <div class="toggle-filters-close btn btn-main visible-sm visible-xs">
+      Update search
+    </div>
+  </div>
+  <section class="products">
+    <header class="hidden">
+      <h3 class="h3 title">Product category with topbar</h3>
+    </header>
+
+    <div class="row">
+
+      <div class="col-md-12 col-xs-12">
+        <div class="sort-bar clearfix">
+
+          <div class="sort-options pull-right">
+            <span>Afficher par</span>
+            <select [(ngModel)]="catalogue.categories" (change)="onChangeName($event)"
+              placeholder="Séléctionner votre catégorie" id="categories">
+              <option placeholder="Séléctionner votre catégorie">Séléctionner votre catégorie</option>
+              <option *ngFor="let categorie of categories" [value]="categorie._id">{{ categorie.name }} </option>
+            </select>
+            <span></span>
+            <select [(ngModel)]="catalogue.enseignes" id="enseigne" (change)="onChangeName($event)">
+              <option value="">Séléctionner votre enseigne</option>
+              <option [value]="enseigne._id" id="enseigne" *ngFor="let enseigne of enseignes">{{ enseigne.name }}
+              </option>
+            </select>
+            <span class="grid-list">
+
+            </span>
+          </div>
+        </div>
+
+        <div class="row row-clean" style="padding: 10px;
+        margin: 10px 100px;
+         width: auto;
+        display: block;
+        height: 800px;">
+
+          <div class="col-xs-6 col-sm-4 col-lg-3" *ngFor="let catalogue of catalogues | paginate:{id:'listing_pagination',
+            itemsPerPage:12,currentPage:page,totalItems:totalRecords}
+            ">
+            <article style="padding:1px;margin:1px;border:2px solid #eee;width:95%;height:430px;display:block;">
+              <div class="info">
+                <span class="add-favorite" *ngIf="user === 'null'">
+
+                    data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                </span>
+                <span class="add-favorite {{added}}" *ngIf="user !== 'null'">
+
+                    data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                </span>
+                <span>
+                  <a [routerLink]="['/pdf/' + catalogue._id]" routerLinkActive="router-link-active" target="_blank"
+                    class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
+                </span>
+              </div>cata
+
+              <div class="figure-grid" >
+                <div class="image" style="padding:70px 5px 10px 10px;border:none">
+
+                    style="margin:auto;width:250px;height:390px;padding:5px 10px;">
+                    <img src="{{ apiUrl }}/{{ catalogue.photo }}" alt="" style="  width: 100%;  height: 100%;"  />
+                  </a>
+                </div>
+                <div class="text">
+                  <h2 class="title h4">
+
+                  </h2>
+                  <sup>De {{catalogue.dateDebut | date:'dd/MM/yyyy'}} à </sup>
+                  <sup>{{catalogue.dateFin | date:'dd/MM/yyyy'}} </sup>
+                  <span class="description clearfix">{{catalogue.description}}</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+
+        <div class="pagination-wrapper">
+          <ul class="pagination">
+            <li>
+
+            </li>
+
+
+            <pagination-controls class="my-pagination" id="listing_pagination" (pageChange)="page=$event" maxSize="8"
+              directionLinks="true" autoHide="true" responsive="true" previousLabel="" nextLabel=""
+              screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+              screenReaderCurrentLabel="You're on page">
+            </pagination-controls>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </section>
+</section> -->

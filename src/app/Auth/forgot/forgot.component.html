@@ -1,0 +1,118 @@
+
+<div class="page-wrapper">
+  <main class="main">
+    <div class="login-page bg-image pt-8 pb-8 pt-md-12 pb-md-12 pt-lg-17 pb-lg-17"
+      style="background-size: cover;
+      background-image: url(../../assets/assets/images/backgrounds/login-bg.jpg);
+      position: absolute;
+      width: 100%;
+      height: 100%;" >
+      <div class="container">
+        <div class="form-box">
+          <div class="form-tab">
+            <ul class="nav nav-pills nav-fill" role="tablist">
+              <!-- <li class="nav-item">
+                <a class="nav-link" id="signin-tab-2" data-toggle="tab" href="#signin-2" role="tab"
+                  aria-controls="signin-2" *ngIf="resetPass" aria-selected="false">Please enter your code from the email
+                  and insert your new password.</a>
+              </li> -->
+
+            </ul>
+            <ul class="nav nav-pills nav-fill" role="tablist">
+              <li class="nav-item" *ngIf="resetPass">
+                <a class="nav-link" id="signin-tab-2" data-toggle="tab"  role="tab"
+                  aria-controls="signin-2" aria-selected="false">Entre le jeton et ajouter une
+                  nouvelle mot de passe.</a>
+              </li>
+              <li class="nav-item" *ngIf="forgotpass">
+                <a class="nav-link active" id="register-tab-2" data-toggle="tab"  role="tab"
+                  aria-controls="register-2" aria-selected="true">Mot de passe oublié</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link active" id="register-tab-2" data-toggle="tab" href="#register-2" role="tab"
+                  aria-controls="register-2" *ngIf="forgotpass" aria-selected="true">Mot de passe oublié</a>
+              </li> -->
+            </ul>
+            <div class="tab-content">
+              <div class="text-danger" *ngIf="error">
+                <div class="alert alert-{{ color }}" role="alert">
+                  {{error | uppercase}}: {{description}}
+                </div>
+              </div>
+              <!-- <div class="alert alert-{{ color }}" role="alert" *ngIf="error">
+                {{ error | uppercase }}! <br />
+                <p>{{ description }}</p>
+              </div> -->
+
+              <div class="tab-pane fade show active" id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
+                <form action="" (ngSubmit)="onResetPassword()" *ngIf="resetPass">
+                  <div class="form-group">
+                    <label for="singin-email-2">JETON *</label>
+                    <input type="text" [(ngModel)]="codetoken" class="form-control" id="singin-email-2"
+                      name="singin-email" required>
+                  </div><!-- End .form-group -->
+
+                  <div class="form-group">
+                    <label for="singin-password-2">Mot de passe *</label>
+                    <input type="password" [(ngModel)]="user.password" class="form-control" id="singin-password-1"
+                      name="singin-password" required>
+                  </div><!-- End .form-group -->
+                  <div class="form-group">
+                    <label for="singin-password-1">Confirmer votre mot de passe *</label>
+                    <input type="password" [(ngModel)]="user.passwordConfirm"
+                      class="form-control" id="singin-password-2" name="singin-password1" required>
+                  </div><!-- End .form-group -->
+
+                  <div class="form-footer">
+                    <button type="submit" class="btn btn-outline-primary-2">
+                      <span>Valider</span>
+                      <i class="icon-long-arrow-right"></i>
+                    </button>
+
+
+
+
+                  </div><!-- End .form-footer -->
+                </form>
+                <form action="" (ngSubmit)="onForgotPassword()" *ngIf="forgotpass">
+                  <div class="form-group">
+                    <label for="register-email-2">Entrez votre adresse e-mail afin que nous puissions réinitialiser
+                      votre mot de passe.</label>
+                    <input type="email" [(ngModel)]="user.email" class="form-control" id="register-email-2"
+                      name="register-email" required>
+                  </div><!-- End .form-group -->
+
+
+
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-lg-6">
+
+                        <button type="button" [routerLink]="['/']" class="btn btn-outline-primary-2 float-left">
+                          <span>Annuller</span>
+                          <i class="icon-long-arrow-right"></i>
+                        </button>
+                      </div>
+                      <div class="col-lg-6">
+
+                        <button type="submit" class="btn btn-outline-primary-2 float-right">
+                          <span>Valider</span>
+                          <i class="icon-long-arrow-right"></i>
+                        </button>
+                      </div>
+                    </div>
+
+
+                  </div><!-- End .form-footer -->
+                </form>
+
+              </div><!-- .End .tab-pane -->
+            </div><!-- End .tab-content -->
+          </div><!-- End .form-tab -->
+        </div><!-- End .form-box -->
+      </div><!-- End .container -->
+    </div><!-- End .login-page section-bg -->
+  </main><!-- End .main -->
+
+
+</div><!-- End .page-wrapper -->

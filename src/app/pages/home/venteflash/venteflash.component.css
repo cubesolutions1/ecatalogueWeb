@@ -1,0 +1,70 @@
+.product-action {
+  margin-bottom: 2.5rem;
+  visibility: visible !important;
+  opacity: unset;
+  background-color: red !important;
+  color: #000;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  line-height: 1;
+  transition: all 0.35s ease;
+  padding-top: 1.9rem;
+  padding-bottom: 3.9rem;
+  margin-bottom: 3.9rem;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+/* .owl-theme .owl-nav [class*="owl-"] {
+  position: absolute;
+  top: 50%;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  margin-top: -15px;
+  color: #c96;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0;
+  border: 0.1rem solid #ebebeb;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+} */
+.owl-theme .owl-nav .owl-next {
+  right: 0px;
+  /* right: -50px; */
+}
+.owl-theme .owl-nav .owl-prev {
+  left: 0px;
+}
+.owl-theme .owl-nav [class*="owl-"] {
+  color: #07ca6f;
+  /* background-color: #07ca6f; */
+  margin: 0 110px;
+}
+.trending-products {
+  background-color: #a52a2a00 !important;
+  padding: 0rem !important;
+}
+.owl-theme .owl-nav [class*="owl-"] {
+  color: #07ca6f;
+  /* background-color: #07ca6f; */
+  margin: 0px;
+}
+i.icon-angle-right.text-50 {
+  color: rgb(7, 202, 111);
+  background-color: rgba(0, 0, 0, 0);
+  border-top-color: rgb(7, 202, 111);
+  border-bottom-color: rgb(7, 202, 111);
+  border-left-color: rgb(7, 202, 111);
+  border-right-color: rgb(7, 202, 111);
+  border-color: rgb(7, 202, 111);
+  box-shadow: rgb(0, 0, 0) 0px 0px 0px;
+}

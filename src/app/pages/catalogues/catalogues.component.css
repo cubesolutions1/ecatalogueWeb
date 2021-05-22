@@ -1,0 +1,65 @@
+.my-pagination /deep/ .ngx-pagination .listing_pagination  {
+  background: #777;
+  color:#1cc0a0;
+  /* padding:15px; */
+  /* margin:0 15px; */
+  border-radius: 100%;
+  font-size: 10px;
+}
+.my-pagination /deep/ .ngx-pagination .current {
+  /* padding:5px; */
+  /* margin:0 20px; */
+  background: #1cc0a0;
+  /* border-radius: 100%; */
+  /* font-size: 14px; */
+  color:#333333c7;
+  /* padding:10px; */
+  /* width:35px; */
+}
+/* .my-pagination /deep/ .ngx-pagination .current:hover {
+   padding:5px;
+  background: #1cc0a0;
+  border-radius: 100%;
+  font-size: 14px;
+  color:white;
+}
+.my-pagination /deep/ .ngx-pagination .current:focus {
+  padding:5px;
+  background: #1cc0a0;
+  border-radius: 100%;
+  font-size: 14px;
+  color:white;
+}
+.my-pagination /deep/ .ngx-pagination ul {
+  background: #1cc0a0;
+  border-radius: 100%;
+  color:white;
+  padding:0 18px;
+  font-size: 14px;
+}
+.my-pagination /deep/ .ngx-pagination li {
+  background: #1cc0a0;
+  border-radius: 100%;
+  color:white;
+  margin:5px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.ngx-pagination a, .ngx-pagination button{
+color: #0a0a0a;
+display: block;
+background: #07c;
+border-radius: 100%;
+padding: 10px;
+border-radius: 0;
+}
+
+.ngx-pagination a, .ngx-pagination li{
+color: #0a0a0a;
+display: block;
+background: #07c;
+border-radius: 100%;
+padding: 0.1875rem 0.625rem;
+border-radius: 0;
+} */

@@ -1,0 +1,149 @@
+<div class="page-wrapper">
+  <app-navbar></app-navbar>
+  <main class="main">
+    <div class="page-header text-center" style="background-image: url('../../assets/assets/images/page-header-bg.jpg')">
+      <div class="container-fluid">
+        <h1 class="page-title">Vente flash</h1>
+      </div>
+    </div>
+    <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+      <div class="container-fluid">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a [routerLink]="['/']">Accueil</a></li>
+          <!-- <li class="breadcrumb-item"><a href="#">Vente flash</a></li>
+          <li class="breadcrumb-item"><a href="#">No Sidebar</a></li> -->
+          <li class="breadcrumb-item active" aria-current="page">Vente flash</li>
+        </ol>
+      </div><!-- End .container-fluid -->
+    </nav><!-- End .breadcrumb-nav -->
+    <div class="page-content">
+      <div class="container-fluid">
+        <div class="toolbox">
+          <div class="toolbox-left">
+
+            <div class="" *ngIf="!empty ">
+              <!-- <div class="container"> -->
+                <!-- <h1 class="title  "> -->
+                  <pagination-controls class="my-pagination" id="listing_pagination" (pageChange)="page=$event"
+                    maxSize="8" directionLinks="tue" autoHide="true" responsive="true" previousLabel="" nextLabel=""
+                    screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+                    screenReaderCurrentLabel="You're on page">
+                  </pagination-controls>
+
+                <!-- </h1> -->
+
+              <!-- </div> -->
+            </div>
+          </div>
+          <!-- End .toolbox-left -->
+
+          <!-- <div class="toolbox-center">
+            <div class="toolbox-info">
+              Showing <span>12 of 56</span> Products
+            </div>
+          </div> -->
+          <!-- End .toolbox-center -->
+          <div class="toolbox-right">
+            <div class="toolbox-sort">
+              <label for="sortby">Afficher par:</label>
+              <div class="select-custom">
+                <select id="categories" name="categories" id="categories" class="form-control"
+                  (change)="onChangeName($event)">
+                  <option placeholder="Séléctionner votre catégorie" disabled value="">Catégorie</option>
+                  <option value="">Afficher tout</option>
+                  <option *ngFor="let categorie of categories" style="text-transform: capitalize;" [value]="categorie._id">{{ categorie.name | lowercase  }}
+                  </option>
+                </select>
+
+              </div>
+              <div class="select-custom">
+                <select id="enseigne" class="form-control" (change)="onChangeName($event)">
+                  <option value="" disabled>Enseigne</option>
+                  <option value="">Afficher tout</option>
+                  <option [value]="enseigne._id" id="enseigne" style="text-transform: capitalize;" *ngFor="let enseigne of enseignes">{{
+                    enseigne.name | lowercase  }}
+                  </option>
+                </select>
+              </div>
+            </div><!-- End .toolbox-sort -->
+          </div><!-- End .toolbox-right -->
+        </div><!-- End .toolbox -->
+
+        <div class="products">
+          <div class="row ml-5 mr-5 pl-5 pr-5" *ngIf="empty " >
+            <div class="text-center col-12 col-md-12 col-lg-12 col-xl-12 pb-5 mb-5" >
+              <div class="product product-5 text-center">
+                <h1>Aucun produit n'est ajouté pour le moment !
+
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div class="row" *ngIf="!empty ">
+
+            <div class="col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"  *ngFor="let produit of produits | paginate:{id:'listing_pagination',
+            itemsPerPage:18,currentPage:page,totalItems:totalRecords}
+            ">
+              <div class="product product-2 d-flex flex-column"  >
+                <figure class="product-media">
+                  <span class="product-label  label-sale" style="background-color: #07ca6f;">-{{produit.reduction}}%</span>
+                  <a [routerLink]="['/detailproduit/' + produit._id]">
+                    <img src="{{apiUrl}}/{{produit.photo}}" class="product-image"
+                      style="width: auto;height: auto;margin:auto;background-position:cover;
+                      background-size: cover;"
+                      (error)="img.src = '../../assets/assets/images/1.jpg'" #img>
+                  </a>
+
+                  <div class="product-action-vertical" *ngIf="user">
+                    <a (click)="addFavoris(produit._id)" class="btn-product-icon btn-wishlist"
+                      title="Add to wishlist"></a>
+                  </div><!-- End .product-action -->
+
+
+                </figure><!-- End .product-media -->
+
+                <div class="product-body  mt-auto" >
+                  <div class="product-cat">
+                    <a>{{produit.materiaux}}</a>
+                  </div><!-- End .product-cat -->
+                  <h3 class="product-title"><a [routerLink]="['/detailproduit/' + produit._id]">{{produit.name}}</a></h3>
+                  <!-- End .product-title -->
+                  <div class="product-price">
+                    <span  style="color: #07ca6f;">&euro;{{produit.prixNv}}</span>
+                    <span class="old-price pl-2" ><del>&euro;{{produit.prix}}</del></span>
+                  </div><!-- End .product-price -->
+                  <div class="text-center font-large-1  text-danger">
+                    <strong style="color: #07ca6f;">
+                      <countdown [config]="{leftTime: getDifference(produit.dateFin),  format:'dd\'J \': hh\'H \': mm\'M \': ss\'S \''}"></countdown>
+                    </strong>
+                  </div>
+                </div><!-- End .product-body -->
+              </div>
+
+            </div>
+          </div><!-- End .row -->
+          <div class="" *ngIf="!empty ">
+            <div class="container">
+              <!-- <div class=" text-center "> -->
+                <pagination-controls class="my-pagination" id="listing_pagination" (pageChange)="page=$event"
+                  maxSize="8" directionLinks="tue" autoHide="true" responsive="true" previousLabel="" nextLabel=""
+                  screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+                  screenReaderCurrentLabel="You're on page">
+                </pagination-controls>
+                <!-- End .title mb-2 -->
+
+              <!-- </div> -->
+
+            </div><!-- End .container -->
+          </div>
+        </div><!-- End .products -->
+
+        <div class="sidebar-filter-overlay"></div>
+
+      </div>
+    </div>
+  </main>
+
+  <app-footer></app-footer>
+</div>
+<app-mobile></app-mobile>

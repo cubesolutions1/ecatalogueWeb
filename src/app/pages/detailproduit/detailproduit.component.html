@@ -1,0 +1,77 @@
+<div class="page-wrapper">
+  <app-navbar></app-navbar>
+  <main class="main">
+    <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+      <div class="container d-flex align-items-center">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a [routerLink]="['/']">Accueil</a></li>
+          <li class="breadcrumb-item"><a>Présentation du produit</a></li>
+        </ol>
+      </div>
+    </nav>
+    <div class="page-content">
+      <div class="container">
+        <div class="product-details-top mt-5 mr-5 ml-5">
+          <div class="row mt-5 mr-5 ml-5 pl-5 pr-5">
+            <div class="col-md-6 ">
+              <div class="product-details">
+                <h1 class="product-title" *ngIf="!loading"> {{produit?.name}} </h1><!-- End .product-title -->
+                <div class="ratings-container">
+                </div>
+                <div class="product-price" *ngIf="!loading">
+                  <span style="color: #1cc0a0;">&euro;{{produit?.prixNv}}</span>
+                  <span class="old-price pl-2"><del>&euro;{{produit?.prix}}</del></span>
+                </div>
+                <div class="product-content">
+                  <p *ngIf="!loading">{{produit?.description}}</p>
+                </div>
+                <div class="tab-pane fade show active" id="product-info-tab" role="tabpanel"
+                     aria-labelledby="product-info-link" *ngIf="!loading">
+                  <div class="product-desc-content">
+                    <div class="product product-2">
+                      <figure class="product-media" style="background-color: transparent;">
+                        <a href="{{produit?.enseigne?.url}}" target="_blank" style="width: 150px;height: 250px;justify-content: center;
+                        margin-left: auto;
+                        margin-right: auto; text-align:center">
+                          <img src="{{apiUrl}}Enseignes/{{produit?.enseigne?.photo}}" class="product-image mb-3"
+                               style="width: auto;height: auto;margin:auto;background-size: cover;"
+                               (error)="img.src = '../../assets/assets/images/demos/demo-4/products/product-13.jpg'"
+                               #img>
+                        </a>
+                        <div class="product-action-vertical" *ngIf="user">
+                          <a (click)="addFavoris(produit._id)" class="btn-product-icon btn-wishlist"
+                             title="Add to wishlist"></a>
+                        </div><!-- End .product-action -->
+                      </figure><!-- End .product-media -->
+                      <div class="product-body">
+                        <h5 class="product-title text-success" style="font-size: 2rem;">Enseigne: </h5>
+                        <a>{{produit?.enseigne?.name}}</a>
+                        <div class="product-price">
+                        </div>
+                      </div><!-- End .product-body -->
+                    </div>
+                    <h3>Description de l'enseigne:</h3>
+                    <p>{{produit?.enseigne?.description}}</p>
+                  </div><!-- End .product-desc-content -->
+                </div><!-- .End .tab-pane -->
+              </div><!-- End .product-details -->
+            </div><!-- End .col-md-6 -->
+            <div class="col-md-6 " style="   text-align:-webkit-center;">
+              <div class="product-gallery product-gallery-vertical" [ngStyle]="loading ? {'display': 'none'} :{}  ">
+                <div class="row mr-5">
+                  <figure class="product-main-image">
+                    <img id="product-zoom" (load)="onLoad()" src="{{apiUrl}}Produit/{{produit?.photo}}"
+                         alt="product image">
+                  </figure><!-- End .product-main-image -->
+                </div><!-- End .row -->
+              </div><!-- End .product-gallery -->
+            </div><!-- End .col-md-6 -->
+          </div>
+        </div><!-- End .product-details-top -->
+      </div><!-- End .container -->
+    </div><!-- End .page-content -->
+  </main><!-- End .main -->
+
+  <app-footer></app-footer>
+</div>
+<app-mobile></app-mobile>

@@ -1,0 +1,47 @@
+<div class="page-wrapper">
+  <main class="main">
+    <div class="page-content">
+      <div class="container">
+
+        <owl-carousel-o [options]="customOptions">
+          <ng-container *ngFor="let slide of bannieres | slice:0:3 ;let i =index;">
+            <ng-template carouselSlide>
+              <div class="row">
+
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="banner banner-big banner-content" >
+                    <a >
+                      <img [hidden]="loading" class="slider" (load)="onLoad()" src="{{apiUrl}}{{slide?.photo}}" #img
+                        [title]="slide?.name" alt="{{slide?.name}}">
+                    </a>
+                    <app-skeleton *ngIf="loading" Cwidth="100%" Cheight="600px"></app-skeleton>
+
+
+                     <div class="intro-content p-3" style="width: 50%;background-color: rgba(0, 0, 0, 0.151); "
+                      [hidden]="loading">
+
+                    <!--  <h3 class="intro-subtitle"></h3>
+
+                      <h1 class="intro-title text-white">
+
+                        Découvrez les derniers
+                        catalogues et profitez
+                        de nos promotions flash
+                      </h1>
+                    </div>
+                    <a href="category.html" class="btn btn-primary">
+                      <span>EN SAVOIR +
+                      </span>
+                      <i class="icon-long-arrow-right"></i>
+                    </a> -->
+                  </div>
+                </div>
+              </div>
+              </div>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+      </div>
+    </div>
+  </main>
+</div>

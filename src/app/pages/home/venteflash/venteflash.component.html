@@ -1,0 +1,65 @@
+<div class=" bg-lighter"></div>
+<div class="page-wrapper ">
+  <main class="main " style="background-color: white;">
+    <div class="container-fluid " style="background-color: white;">
+      <div class="row " style="background-color: white;">
+        <div class="col-xl-12 col-xxl-12 " style="background-color: white;">
+          <div class="  trending-products " style="background-color: white;padding-top:0">
+            <h3 class=" text-center ">Vente flash</h3><!-- End .title mb-2 -->
+            <hr>
+            <div class="pb-2 "></div>
+            <div class="row  justify-content-md-center" *ngIf="empty ">
+              <div style="margin: 8em;">
+                <h3>Ici bientôt vos ventes flash
+                </h3>
+              </div>
+            </div>
+            <div class="tab-content tab-content-carousel " style="background-color: white;">
+              <div class="tab-pane p-0 fade show active " style="background-color: white;" id="trending-all-tab"
+                role="tabpanel" aria-labelledby="trending-all-link">
+                <owl-carousel-o [options]="customOptions" class="" style="background-color: white;">
+                  <ng-container *ngFor="let item of produits" class="" style="background-color: white;">
+                    <ng-template carouselSlide [id]="item.id" class="" style="background-color: white;">
+                      <div class="product product-5 text-center">
+                        <figure class="product-media" style="background-color: transparent;">
+                          <span class="product-label  label-sale"
+                            style="background-color: #07ca6f;">{{item.reduction}}%</span>
+                          <a [routerLink]="['/detailproduit/' + item._id]">
+                            <img src="{{apiUrl}}/{{item.photo}}" alt="Product image" class="product-image" style="border: 2.5px solid
+                              #07ca6f;border-radius: 100%
+                                    ;width:150px;height:150px;
+                             margin-right: auto;margin-left:auto" (mouseover)="viewEvent(item._id,item.commercant)"
+                              #img (error)="img.src = '../../../assets/assets/images/grey.jpg'">
+                          </a>
+                          <p class="font-large-1 text-primary"><a style="color:black !important;"
+                              [routerLink]="['/detailproduit/' + item._id]">{{item.name | slice:0:20}}...</a></p>
+                          <p class="font-large-1 text-primary"><a style="color:black !important;"
+                              [routerLink]="['/detailproduit/' + item._id]"><span class="pr-2"
+                                style="color: #07ca6f;">&euro;{{item.prixNv}} </span><del style="-color: #07ca6f;">
+                                &euro;{{item.prix}} </del></a></p>
+                          <div>
+                            <p class="font-large-1  text-danger">
+                              <strong style="color: #07ca6f;">
+                                <countdown
+                                  [config]="{leftTime: getDifference(item.dateFin),format:'dd\'J \': hh\'H \': mm\'M \': ss\'S \''}">
+                                </countdown>
+                              </strong>
+                            </p>
+                          </div>
+                        </figure>
+                      </div>
+                    </ng-template>
+                  </ng-container>
+                </owl-carousel-o>
+              </div>
+              <div class="more-container text-center " style="margin-bottom: 1rem;">
+                <a href="/venteflash" class="btn btn-outline-darker btn-more"><span>Toutes les ventes flash</span><i
+                    class="icon-long-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
