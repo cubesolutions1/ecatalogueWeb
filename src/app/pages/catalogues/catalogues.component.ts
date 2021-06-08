@@ -86,7 +86,7 @@ export class CataloguesComponent implements OnInit {
       return this.apiSer.getData('categories/').subscribe((res: any) => {
         this.categories = res.data.data
         //
-
+         
 
         resolve(this.categories)
 
@@ -100,7 +100,7 @@ export class CataloguesComponent implements OnInit {
       return this.apiSer.getData('catalogues/getPromotion').subscribe((res: any) => {
         this.catalogues = res.data.data
         this.totalRecords = res.data.data.length
-        //
+         console.log(res.data.data,"resssssssssssssssssss cat;")
         resolve(this.catalogues)
       })
     })
@@ -110,29 +110,17 @@ export class CataloguesComponent implements OnInit {
 
 
       this.catalogues = []
-      // this.empty=false
-      // ?categories=5fb52bbd5f672c3580b340ad&limit=12
-      // ?enseigne=5fca59bd5a751a03e86e2445&sort=-createdAt
-      //
+
       if (!event.target.value) {
         this.catalogues = []
         this.getCatalogues()
       } else {
 
         this.getCatalogueByName(event.target.id,event.target.value);
-        // return this.apiSer.getData('catalogues/getPromotion?' + event.target.id + '=' + event.target.value + '&sort=-createdAt').subscribe((res: any) => {
-        //   this.catalogues = res.data.data
-        //
-        //
-        //    this.categoriesName = ''
-        //    if(this.catalogues.length==0) this.empty=true
-        //   resolve(this.catalogues)
-        // }, err =>
-        // )
+
       }
     })
-    //
-    // this.router.navigateByUrl(`catalogues/${event}/${event}`)
+    
 
   }
   getCatalogueByName(id,value){
@@ -143,41 +131,7 @@ export class CataloguesComponent implements OnInit {
       this.catalogues.length ==0 ? this.empty=true : null
     })
   }
-  // public getCataloguesBycategories(event) {
-  //
-
-  //   return new Promise(resolve => {
-
-  //     //
-  //     this.catalogues = []
-
-  //     return this.apiSer.getData('catalogues/getPromotion?categories=' + event + '&sort=-createdAt').subscribe((res: any) => {
-  //       this.catalogues = res.data.data
-  //
-  //       resolve(this.catalogues)
-  //     }, err =>
-  //     )
-  //     // }
-  //   })
-  // }
-  // public getCataloguesByenseignes(event) {
-  //
-
-  //   return new Promise(resolve => {
-
-  //     //
-  //     this.catalogues = []
-
-  //     return this.apiSer.getData('catalogues/getPromotion?enseigne=' + event + '&sort=-createdAt').subscribe((res: any) => {
-  //       this.catalogues = res.data.data
-  //
-  //       resolve(this.catalogues)
-  //     }, err =>
-  //     )
-  //     // }
-  //   })
-  // }
-  // }
+  
 
   public getCataloguesByPage(page) {
     return new Promise(resolve => {
@@ -204,17 +158,18 @@ export class CataloguesComponent implements OnInit {
 
 
   // ajouter catalogue au favoris
-  addFavoris(catalogue) {
+  addFavoris(event) {
+    console.log('testttttttttttttt')
+    console.log(event,"dddddddddddddddddddddddddddd")
+   
+    // let body = {
+    //   catalogues: catalogue
+    // }
+    // this.apiSer.postData('favoris/', body).subscribe((res: any) => {
+    //   // this.added='added'
 
-
-    let body = {
-      catalogues: catalogue
-    }
-    this.apiSer.postData('favoris/', body).subscribe((res: any) => {
-      // this.added='added'
-
-      location.reload();
-    }, err => {}
-    );
+    //   location.reload();
+    // }, err => {}
+    // );
   }
 }

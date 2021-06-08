@@ -68,7 +68,7 @@ export class VenteflashComponent implements OnInit {
   public getProducts() {
 
     return new Promise(resolve => {
-      return this.apiSer.getData('produits/venteflash').subscribe(res => {
+      return this.apiSer.getData('produits/venteflash').subscribe((res:any) => {
         // return this.apiSer.getData('produits/').subscribe(res => {
         //
         this.produits = res.data.data

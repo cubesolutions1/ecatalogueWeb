@@ -8,7 +8,7 @@
       <div style="width: 100%;" *ngIf="item?.catalogue;else templateName">
         <div class="product-cart-details">
           <h4 class="product-title">
-            <a href="product.html">{{item?.catalogue?.name}}</a>
+            <a >{{item?.catalogue?.name}}</a>
           </h4>
   
           <span class="cart-product-info">
@@ -18,7 +18,7 @@
         </div><!-- End .product-cart-details -->
   
         <figure class="product-image-container">
-          <a href="product.html" class="product-image">
+          <a  class="product-image">
             <img #img (error)="img.src = 'assets/assets/images/grey.jpg'" src="{{ apiUrl }}/{{item?.catalogue?.photo}}" alt="product">
           </a>
         </figure>

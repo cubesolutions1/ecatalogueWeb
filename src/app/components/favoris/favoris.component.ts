@@ -36,7 +36,7 @@ export class FavorisComponent implements OnInit {
       this.favoris = [];
       return this.apiSer.getData('favoris/getFavorisByMe').subscribe((res: any) => {
         //
-
+        
         this.favoris=res.data.data
 
         // for (let item of res.data.data) {
@@ -46,7 +46,6 @@ export class FavorisComponent implements OnInit {
         // }
         //
         this.length=this.favoris.length
-        console.log(res.data.data)
         resolve(this.favoris);
       })
 
