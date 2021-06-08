@@ -5,14 +5,14 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3112/api/v1/',
+  apiUrl: 'https://admin.neod-distri.fr:3116/api/v1/',
   // apiUrl: 'http://192.168.137.239:3112/api/v1/',
   // apiUrl: 'https://ecatalogueapi.herokuapp.com/api/v1/',
   //  apiUrl: 'http://catalogue.cubesolutions.tn:3112/api/v1/',
   // apiUrl: 'http://catalogueadmin.gmes.fr:3114/api/v1/',
   // apiUrl: 'http://catalogueapi.netlify.app:3112/api/v1/',
 
-  apiImg: 'http://localhost:3112/img/',
+  apiImg: 'https://admin.neod-distri.fr:3116/img/',
   // apiImg: 'http://192.168.137.239:3112/img/',
   // apiImg: 'https://ecatalogueapi.herokuapp.com/img/',
   // apiImg: 'http://catalogue.cubesolutions.tn:3112/img/',

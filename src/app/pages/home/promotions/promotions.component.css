@@ -1,7 +1,7 @@
 .banniere {
-  width: 900px;
+  width: 90%;
   height: 280px;
-  padding-left:5px
+  margin-left: 5%;
 }
 img {
   width: 100%;
@@ -10,5 +10,4 @@ img {
   background-size: cover;
 }
 .row{
-  margin-left:5px;
 }
