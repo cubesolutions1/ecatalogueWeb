@@ -106,8 +106,8 @@
 
               <!-- <div class="product-countdown countdown-primary" data-until="2019, 10, 8"></div> -->
               <!-- End .product-countdown -->
-              <div class="product-action-vertical">
-                <a *ngIf="user" (click)="addFavoris(catalogue._id)" class="btn-product-icon btn-wishlist"
+              <div class="product-action-vertical"  >
+                <a class="btn-product-icon btn-wishlist" *ngIf="user" (click)="addFavoris(catalogue)"
                   title="Add to Wishlist">
                   <span>
                     Ajouter au favoris

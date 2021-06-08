@@ -24,7 +24,7 @@ export class CatalogueBlockComponent implements OnInit {
   getCatalogue() {
     this.apiSer.get('catalogues/').subscribe(data => {
       this.catalogues = data;
-
+       console.log(this.catalogues,"dddddddddddddddddddd")
 
     });
   }

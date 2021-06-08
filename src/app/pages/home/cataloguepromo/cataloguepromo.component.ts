@@ -63,7 +63,6 @@ export class CataloguepromoComponent implements OnInit {
   public getcategories() {
     return new Promise(resolve => {
 
-      //
       this.categories = []
       return this.apiSer.getData('categories/').subscribe((res: any) => {
         this.categories = res.data.data
@@ -80,7 +79,6 @@ export class CataloguepromoComponent implements OnInit {
       return this.apiSer.getData('catalogues/getPromotion?sort=-createdAt').subscribe((res: any) => {
         this.catalogues = res.data.data
         this.totalRecords = res.data.data.length
-        //
         resolve(this.catalogues)
       })
     })
@@ -105,7 +103,7 @@ export class CataloguepromoComponent implements OnInit {
 
             resolve(this.catalogues)
           }, err => {
-            console.log(err)
+            
           }
           //
         )
@@ -141,11 +139,11 @@ export class CataloguepromoComponent implements OnInit {
   // ajouter catalogue au favoris
   addFavoris(catalogue) {
 
-    //
+   
     const body = {
-      catalogues: catalogue
+      catalogue: catalogue
     }
-    this.apiSer.postData('favoris/', body).subscribe((res: any) => {
+    this.apiSer.postData('favoris/ajouterWeb', body).subscribe((res: any) => {
         // this.added='added'
 
         location.reload();
@@ -154,6 +152,18 @@ export class CataloguepromoComponent implements OnInit {
     );
   }
 
+  
+  // addFavoris (catalogue){
+  //   console.log(catalogue,"catttttttttttttttttttttttttttttttttttttttt")
+  
+  //   this.apiSer.creerFav<orie(catalogue).subscribe(data =>{
+  //        console.log(data)
+  //    }
+     
+  //   )
+  //   }
+     
+  
   clickevent(id, index) {
     //
 

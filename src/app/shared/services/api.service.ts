@@ -28,15 +28,18 @@ export class ApiService {
   get(url: string): Observable<Object[]> {
     return this.http.get(environment.apiUrl + url)
       .pipe(map((res: any) => res.data.data), catchError(this.handleError));
-
   }
   getData(url) {
 
     return this.http.get(environment.apiUrl + url)
-      .pipe(map((res: any) => { return res }, err => {
+      .pipe(map((res: any) => { return res
+        console.log(res)
+       }, err => {
 
       }));
   }
+
+
   delete(url: string, id: string,) {
     return this.http.delete(environment.apiUrl + url + id)
       .pipe(map((res: any) => { return res }, err => {
@@ -55,13 +58,15 @@ export class ApiService {
   }
   postData(url, entity) {
     // 
-
     return this.http.post(environment.apiUrl + url, entity).pipe(map((res: any) => {
       return res;
     }, err => {
 
     }));
   }
+
+  
+
   put(url, entity) {
 
 
@@ -82,6 +87,7 @@ export class ApiService {
 
     }));
   }
+  
 
   //
   // /**
