@@ -17,13 +17,24 @@ export class UserService {
     }
     ));
   }
-  public signUp(object) {
-    return this.utilsService.post(UtilsService.API_USER + 'signup',object).pipe(map((res: any) => {
-      console.log(res);
-      return res.data.data
+  // public signUp(object) {
+  //   return this.utilsService.post(UtilsService.API_USER + 'signup',object).pipe(map((res: any) => {
+  //     // console.log(res,'ddddddddddddddddddddddddddddddddddd');
+  //     return res.data.data
+  //   }, err => {
+  //     console.log(err);
+  //   }
+  //   ));
+  // }
+  
+
+  signUp(object) {
+    return this.utilsService.post(UtilsService.API_USER+ 'signup', object).pipe(map((res: any) => {
+      return res;
     }, err => {
       console.log(err);
-    }
-    ));
+    }));
   }
+
+
 }

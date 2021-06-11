@@ -36,7 +36,7 @@ import { ComponentsModule } from './components/components.module';
 import { environment } from "../environments/environment";
 import { PdfshowComponent } from './pages/pdfshow/pdfshow.component';
 import { PdfshowModule } from './pages/pdfshow/pdfshow.module';
-
+import { ToastrModule } from 'ngx-toastr';
 
 export function tokenGetter() {
   return localStorage.getItem(environment.TOKEN);
@@ -47,9 +47,9 @@ export function tokenGetter() {
     LoginComponent,
     RegisterComponent,
     ForgotComponent,
-    ContactComponent,
+    //ContactComponent,
     // CataloguesComponent,
-    ProduitsComponent,
+   // ProduitsComponent,
     DetailproduitComponent,
     // SkeletonComponent,
     PdfshowComponent,
@@ -60,7 +60,6 @@ export function tokenGetter() {
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-
     CarouselModule,
     InlineSVGModule.forRoot(),
     BrowserAnimationsModule,
@@ -86,7 +85,13 @@ export function tokenGetter() {
     ProduitsModule,
     DetailproduitModule,
     ContactModule,
-    ForgotModule
+    ForgotModule,
+    // ToastrModule.forRoot({
+    //   timeOut: 10000,
+    //   positionClass: 'toast-bottom-right',
+    //   preventDuplicates: true,
+    // }),
+    
 
   ],
   providers: [AuthService,

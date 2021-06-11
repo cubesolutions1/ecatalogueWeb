@@ -38,19 +38,7 @@ export class ProduitsComponent implements OnInit {
 
     })
   }
-  //   ngAfterViewInit(): void {
-  //     const img = new Image();
-  //     img.onload = () => {
-  //         this.setImage(this.src);
-  //     };
-
-  //     img.onerror = () => {
-  //          Set a placeholder image
-  //         this.setImage('assets/placeholder.png');
-  //     };
-
-  //     img.src = this.src;
-  // }
+ 
   ngOnInit() {
     this.user = localStorage.getItem(environment.TOKEN)
     //
@@ -59,9 +47,7 @@ export class ProduitsComponent implements OnInit {
     this.getproduits()
     this.getcategories()
   }
-  //   private setImage(src: string) {
-  //     this.imageRef.nativeElement.setAttribute('src', src);
-  // }
+
   public getenseignes() {
     return new Promise(resolve => {
 
@@ -110,8 +96,6 @@ export class ProduitsComponent implements OnInit {
       this.empty = false
 
       this.produits = []
-      // ?categories=5fb52bbd5f672c3580b340ad&limit=12
-      // ?enseigne=5fca59bd5a751a03e86e2445&sort=-createdAt
 
       if (!event.target.value) {
         this.produits = []

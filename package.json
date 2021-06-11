@@ -15,7 +15,7 @@
   "private": true,
   "dependencies": {
     "@agm/core": "^3.0.0-beta.0",
-    "@angular/animations": "^10.2.4",
+    "@angular/animations": "^12.0.4",
     "@angular/common": "^10.2.4",
     "@angular/compiler": "^10.2.4",
     "@angular/compiler-cli": "^10.2.4",
@@ -37,6 +37,7 @@
     "ngx-countdown": "^11.0.1",
     "ngx-owl-carousel-o": "^4.0.0",
     "ngx-pagination": "^5.0.0",
+    "ngx-toastr": "^14.0.0",
     "path": "^0.12.7",
     "rxjs": "~6.6.0",
     "sweetalert2": "^10.15.4",

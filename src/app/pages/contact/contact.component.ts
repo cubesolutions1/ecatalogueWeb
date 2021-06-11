@@ -26,11 +26,10 @@ export class ContactComponent implements OnInit {
       if (data) {
         console.log(data)
         this.getALert(data.status, 'success',"success");
-        // this.route.navigate(['/']);
+      
       }
     }, err => {
-      console.log(err);
-      // this.getALert(err.error.status, 'danger', err.error.error.message.split('failed:')[1]);
+      this.getALert(err.error.status, 'danger', err.error.message);
     });
   }
   getALert(error, color, description) {

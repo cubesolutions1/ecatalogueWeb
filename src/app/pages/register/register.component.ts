@@ -45,10 +45,6 @@ export class RegisterComponent implements OnInit {
     });
   }
   onRegister() {
-    // const val = this.form.value;
-
-
-
     this.apiSer.post('users/signup', this.user).subscribe(data => {
       //
       if (data) {

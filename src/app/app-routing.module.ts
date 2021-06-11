@@ -31,10 +31,7 @@ const routes: Routes = [{
   loadChildren: () => import('./pages/catalogues/catalogues.module').then(m => m.CataloguesModule)
 },
 
-// {
-//   path: 'login', component: LoginComponent,
-//   // loadChildren: () => import('./items/items.module').then(m => m.ItemsModule)
-// },
+
 {
   path: 'venteflash',
   loadChildren: () => import('./pages/produits/produits.module').then(m => m.ProduitsModule)

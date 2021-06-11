@@ -3,8 +3,9 @@ import { UserService } from './../../shared/services/user.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 import { User } from '../../shared/Model/user';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+//import { ToastContainerDirective,ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -13,18 +14,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./loginBllock.component.css']
 })
 export class LoginBllockComponent implements OnInit {
+  // @ViewChild(ToastContainerDirective, { static: true })
+  // toastContainer: ToastContainerDirective;
+  
   user: User = new User();
   errors: string = ''
   errorList = [];
   color: string = ''
   description: string = ''
-
+  public type: string = 'signin-tab'
+  public login : Boolean = true;
+  public register :Boolean = false
+  public showlogin :Boolean = true
+  public showRegister :Boolean = false
   constructor(private authServ: AuthService,
     private userSer: UserService,
-    private route: Router) {
+    private route: Router,) {
   }
 
   ngOnInit() {
+   // this.toastr.overlayContainer = this.toastContainer;
   }
 
   onLogin() {
@@ -63,30 +72,25 @@ export class LoginBllockComponent implements OnInit {
   }
 
   onRegister() {
-    // const val = this.form.value;
-    // console.log('oki');
 
     this.user.role = 'client'
 
-    this.getALert(null, null, null)
+   // this.getALert(null, null, null)
     this.userSer.signUp(this.user).subscribe(data => {
-      // console.log(data);
-
+     console.log(data,"dddddddddddddddddddddddddddddddddddd")
       if (data) {
-        //     localStorage.setItem('currentAdmin', JSON.stringify(data));
-        //     localStorage.setItem('rememberMe', this.rememberMe);
-        //     /*  location.reload();          //this.route.navigateByUrl('/dashboard');
-        //       this.Location.go('/dashboard');*/
-        this.getALert('success', 'success', 'Bienvenue mr ' + this.user.name)
-        //
-        // this.route.navigate(['/']);
-        location.reload();
+        console.log(data)
+       
+       this.getALert("vous pouvez naviguer vers connexion ", 'success',"success");
+      
+         //this.route.navigate(['/']);
+      //  location.reload();
 
       }
 
     }, err => {
       // tslint:disable-next-line: no-console
-      console.log(err);
+      
       if (err.error.message.split('Error')) this.errorList = err.error.message.split('Error');
       this.getALert('Error:', 'danger', this.errorList)
       //      this.getALert(err.error.status, 'danger', err.error.message)
