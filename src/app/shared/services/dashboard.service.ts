@@ -45,7 +45,7 @@ export class CatalogueService {
 
       return this.apiSer.getData('produits/' + id).subscribe((res: any) => {
         // this.added='added'
-        console.log(res)
+        // console.log(res)
 
         resolve(res.data.data)
         // location.reload();

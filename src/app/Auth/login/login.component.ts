@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
 
     this.authServ.login(this.user).subscribe(data => {
-      console.log(data)
+      // console.log(data)
       if (data) {
         // window.location.assign("/")
         // this.route.navigateByUrl('/');

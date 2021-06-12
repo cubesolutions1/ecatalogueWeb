@@ -41,9 +41,9 @@ export class CataloguesComponent implements OnInit {
     this.user = localStorage.getItem(environment.TOKEN)
         //
     this.active.params.subscribe(res => {
-      console.log(res)
+      // console.log(res)
       if (res.idCategorie) {
-        console.log(res.idCategorie)
+        // console.log(res.idCategorie)
         this.idcategories = res.idCategorie
         this.categoriesName = res.categoriesName
        // this.getCataloguesBycategories(this.idcategories)
@@ -86,7 +86,7 @@ export class CataloguesComponent implements OnInit {
       return this.apiSer.getData('categories/').subscribe((res: any) => {
         this.categories = res.data.data
         //
-         
+
 
         resolve(this.categories)
 
@@ -100,7 +100,7 @@ export class CataloguesComponent implements OnInit {
       return this.apiSer.getData('catalogues/getPromotion').subscribe((res: any) => {
         this.catalogues = res.data.data
         this.totalRecords = res.data.data.length
-         console.log(res.data.data,"resssssssssssssssssss cat;")
+         // console.log(res.data.data,"resssssssssssssssssss cat;")
         resolve(this.catalogues)
       })
     })
@@ -120,7 +120,7 @@ export class CataloguesComponent implements OnInit {
 
       }
     })
-    
+
 
   }
   getCatalogueByName(id,value){
@@ -131,7 +131,7 @@ export class CataloguesComponent implements OnInit {
       this.catalogues.length ==0 ? this.empty=true : null
     })
   }
-  
+
 
   public getCataloguesByPage(page) {
     return new Promise(resolve => {
@@ -159,9 +159,9 @@ export class CataloguesComponent implements OnInit {
 
   // ajouter catalogue au favoris
   addFavoris(event) {
-    console.log('testttttttttttttt')
-    console.log(event,"dddddddddddddddddddddddddddd")
-   
+    // console.log('testttttttttttttt')
+    // console.log(event,"dddddddddddddddddddddddddddd")
+
     // let body = {
     //   catalogues: catalogue
     // }
