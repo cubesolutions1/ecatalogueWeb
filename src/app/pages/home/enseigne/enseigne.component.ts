@@ -1,4 +1,4 @@
-import { environment } from './../../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 import { ApiService } from '../../../shared/services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
@@ -12,7 +12,9 @@ export class EnseigneComponent implements OnInit {
   produits:any=[]
   enseignes:any=[]
   apiUrl:string
+
   constructor(private apiSer:ApiService) { }
+
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -39,11 +41,13 @@ export class EnseigneComponent implements OnInit {
     },
     nav: true
   }
+
   ngOnInit() {
     this.getProducts()
     this.getEnseignes()
   }
-  public getProducts() {
+
+  getProducts() {
     return new Promise(resolve => {
       return this.apiSer.getData('produits/').subscribe(res => {
         //
@@ -53,7 +57,8 @@ export class EnseigneComponent implements OnInit {
       )
     })
   }
-  public getEnseignes() {
+
+  getEnseignes() {
     return new Promise(resolve => {
       return this.apiSer.getData('enseignes/?activeUrl=true').subscribe(res => {
         //

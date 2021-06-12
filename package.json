@@ -2,7 +2,6 @@
   "name": "ecatalog-an",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
     "start": "node server.js",
     "dev": "ng serve -o --port=4800",
     "rsheroku": "heroku ps:restart & heroku logs --tail",
