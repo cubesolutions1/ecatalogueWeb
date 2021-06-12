@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BanniereService } from './banniere.service';
+import { BannerService } from './banner.service';
 
-describe('BanniereService', () => {
-  let service: BanniereService;
+describe('BannerService', () => {
+  let service: BannerService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(BanniereService);
+    service = TestBed.inject(BannerService);
   });
 
   it('should be created', () => {

@@ -1,4 +1,4 @@
-import { BanniereService } from './../../../shared/services/banniere.service';
+import { BannerService } from '../../../shared/services/banner.service';
 import { environment } from '../../../../environments/environment';
 import { ApiService } from '../../../shared/services/api.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
@@ -29,7 +29,7 @@ export class SliderComponent implements OnInit {
     navSpeed: 600,
   };
   constructor(private apiSer: ApiService,
-    private bannService: BanniereService) {
+    private bannService: BannerService) {
     this.apiUrl = environment.apiImg + 'Banniere/'
   }
   customOptions: OwlOptions = {
@@ -66,7 +66,7 @@ export class SliderComponent implements OnInit {
   }
   getBanniere() {
     return new Promise(resolve => {
-      this.bannService.getAllBannieres().subscribe((data: any) => {
+      this.bannService.getAllBanners().subscribe((data: any) => {
         this.bannieres = data.filter(dataa => dataa.position === 'slider1' || dataa.position === 'slider2' || dataa.position === 'slider3')
         // console.log(this.bannieres);
         resolve(this.bannieres)
