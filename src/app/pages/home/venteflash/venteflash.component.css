@@ -68,3 +68,6 @@ i.icon-angle-right.text-50 {
   border-color: rgb(7, 202, 111);
   box-shadow: rgb(0, 0, 0) 0px 0px 0px;
 }
+.owl-theme .owl-nav [class*="owl-"] {
+  top: calc(50% - 30px/2);
+}
