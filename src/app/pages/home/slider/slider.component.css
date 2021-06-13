@@ -38,8 +38,8 @@ img {
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 100%;
-    width: 920px;
-    height: 500px;
+    /*width: 920px;*/
+    /*height: 500px;*/
   }
 }
 
@@ -48,17 +48,17 @@ img {
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 100%;
-    width: 1920px;
-    height: 700px;
+    /*width: 1920px;*/
+    /*height: 700px;*/
   }
 }
 
 /* ::ng-deep .owl-theme .owl-dots .owl-dot span {
-  background: #D6D6D6!important; 
-  
+  background: #D6D6D6!important;
+
 }
 
 ::ng-deep .owl-theme .owl-dots .owl-dot.active span,
 .owl-theme .owl-dots .owl-dot:hover span {
-  background: #FCAC45!important; 
+  background: #FCAC45!important;
 } */

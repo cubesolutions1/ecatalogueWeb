@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 export class LoginBllockComponent implements OnInit {
   // @ViewChild(ToastContainerDirective, { static: true })
   // toastContainer: ToastContainerDirective;
-  
+
   user: User = new User();
   errors: string = ''
   errorList = [];
@@ -42,10 +42,10 @@ export class LoginBllockComponent implements OnInit {
 
     //
     this.authServ.login(this.user).subscribe(data => {
-      console.log('data', data)
+      // console.log('data', data)
       if (data) {
         this.userSer.getMe().subscribe(res => {
-          console.log(res.role !== 'client');
+          // console.log(res.role !== 'client');
           if (res.role !== 'client') {
             Swal.fire(
               'Erreur',
@@ -77,12 +77,12 @@ export class LoginBllockComponent implements OnInit {
 
    // this.getALert(null, null, null)
     this.userSer.signUp(this.user).subscribe(data => {
-     console.log(data,"dddddddddddddddddddddddddddddddddddd")
+     // console.log(data,"dddddddddddddddddddddddddddddddddddd")
       if (data) {
-        console.log(data)
-       
+        // console.log(data)
+
        this.getALert("vous pouvez naviguer vers connexion ", 'success',"success");
-      
+
          //this.route.navigate(['/']);
       //  location.reload();
 
@@ -90,7 +90,7 @@ export class LoginBllockComponent implements OnInit {
 
     }, err => {
       // tslint:disable-next-line: no-console
-      
+
       if (err.error.message.split('Error')) this.errorList = err.error.message.split('Error');
       this.getALert('Error:', 'danger', this.errorList)
       //      this.getALert(err.error.status, 'danger', err.error.message)

@@ -36,7 +36,7 @@ export class NotificationComponent implements OnInit {
       // console.log('this.idSociete');
       this.notification = [];
       this.notification=  this.notifSer.getAllNotifications()
-console.log(this.notification);
+// console.log(this.notification);
 
     });
   }

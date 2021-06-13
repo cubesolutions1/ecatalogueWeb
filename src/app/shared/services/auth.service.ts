@@ -17,13 +17,13 @@ export class AuthService {
 
   login(user) {
     return this.http.post(environment.apiUrl + 'users/login', user).pipe(map((res: any) => {
-      console.log('data', res)
+      // console.log('data', res)
       this.setSession(res);
       this.addUser(res.id);
       return res;
     }, err => {
 
-      console.log(err)
+      // console.log(err)
     }));
   }
 

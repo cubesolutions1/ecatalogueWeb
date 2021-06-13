@@ -39,7 +39,7 @@ export class DetailproduitComponent implements OnInit {
 
       return this.apiSer.getData('produits/' + this.idproduit).subscribe((res: any) => {
         // this.added='added'
-        console.log(res)
+        // console.log(res)
 
         this.produit = res.data.data
 
