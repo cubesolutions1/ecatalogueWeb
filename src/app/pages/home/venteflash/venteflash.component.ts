@@ -103,7 +103,9 @@ export class VenteflashComponent implements OnInit {
     }
     this.apiSer.post(`produits/${id}/views`, body).subscribe(s => { }
       // console.log(s)
-      , err => console.log(err));
+      , err => {
+      // console.log(err)
+      });
 
 
     // this.counttab[index] = this.count

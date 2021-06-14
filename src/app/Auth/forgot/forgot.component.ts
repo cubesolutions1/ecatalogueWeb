@@ -49,7 +49,7 @@ export class ForgotComponent implements OnInit {
       this.resetPass = true;
 
     }, err => {
-console.log(err);
+// console.log(err);
 
       this.getALert(err.error.status, 'danger', err.error.message);
     });

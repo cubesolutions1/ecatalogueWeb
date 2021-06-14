@@ -20,7 +20,7 @@ export class FavorisComponent implements OnInit {
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem(environment.currentAdmin))
-    console.log('this.user',this.user.role);
+    // console.log('this.user',this.user.role);
 
     if (this.user) {
       //
@@ -36,7 +36,7 @@ export class FavorisComponent implements OnInit {
       this.favoris = [];
       return this.apiSer.getData('favoris/getFavorisByMe').subscribe((res: any) => {
         //
-        
+
         this.favoris=res.data.data
 
         // for (let item of res.data.data) {

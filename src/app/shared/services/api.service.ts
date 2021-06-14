@@ -33,7 +33,7 @@ export class ApiService {
 
     return this.http.get(environment.apiUrl + url)
       .pipe(map((res: any) => { return res
-        console.log(res)
+        // console.log(res)
        }, err => {
 
       }));
@@ -53,11 +53,11 @@ export class ApiService {
     return this.http.post(environment.apiUrl + url, entity).pipe(map((res: any) => {
       return res;
     }, err => {
-      console.log(err);
+      // console.log(err);
     }));
   }
   postData(url, entity) {
-    // 
+    //
     return this.http.post(environment.apiUrl + url, entity).pipe(map((res: any) => {
       return res;
     }, err => {
@@ -65,7 +65,7 @@ export class ApiService {
     }));
   }
 
-  
+
 
   put(url, entity) {
 
@@ -78,7 +78,7 @@ export class ApiService {
     }));
   }
   patch(url, id, entity) {
-    // 
+    //
 
     return this.http.patch(environment.apiUrl + url + id, entity).pipe(map((res: any) => {
       return res;
@@ -87,7 +87,7 @@ export class ApiService {
 
     }));
   }
-  
+
 
   //
   // /**

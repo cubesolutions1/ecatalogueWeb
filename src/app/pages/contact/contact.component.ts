@@ -24,9 +24,9 @@ export class ContactComponent implements OnInit {
   onContact() {
     this.apiSer.post('users/addContact', this.contact).subscribe(data => {
       if (data) {
-        console.log(data)
+        // console.log(data)
         this.getALert(data.status, 'success',"success");
-      
+
       }
     }, err => {
       this.getALert(err.error.status, 'danger', err.error.message);
