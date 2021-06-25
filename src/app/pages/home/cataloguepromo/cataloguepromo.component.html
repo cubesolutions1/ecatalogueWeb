@@ -89,26 +89,15 @@
                       <!-- <span class="product-label label-sale">Sale</span> -->
                       <a href="{{apiUrl}}deploy/pdf_flipbook.html?name={{catalogue.pdf}}" target="_blank">
                         <img src="{{apiUrl}}Catalogues/{{catalogue.photo}}" alt="Product image"
-                          (click)="clickevent(catalogue._id)"
-                          (error)="img.src = '../../assets/assets/images/grey.jpg'"
+                          (click)="clickevent(catalogue._id)" (error)="img.src = '../../assets/assets/images/grey.jpg'"
                           (mouseover)="viewEvent(catalogue._id,i,catalogue.commercant)" class="product-image" #img>
-
                       </a>
-                      <!-- <img [src]="apiUrl+'/'+catalogue.photo" data-rel="fh5-light-box-demo"
-                        data-href="'http://localhost:3112/pdf/index.html?produit='+catalogue.pdf"
-                        data-width="700" data-height="400" data-title="Ecatalogue"> -->
+              
                       <div class="product-action-vertical">
                         <a *ngIf="user!=null" (click)="addFavoris(catalogue._id)" class="btn-product-icon btn-wishlist"
-                          title="Add to Wishlist"><span>Ajouter au
-                            favoris</span></a>
-                        <!-- <a [routerLink]="['/pdf/' + catalogue._id]" routerLinkActive="router-link-active"
-                          target="_blank" class="btn-product-icon btn-quickview" title="Add to Wishlist"><span>Afficher
-                            pdf</span></a> -->
-                      </div><!-- End .product-action-vertical -->
-
-
+                          title="Ajouter aux favoris"></a>
+                      </div>
                     </figure><!-- End .product-media -->
-
                     <div class="product-body">
                       <div class="product-cat">
                         <a>
@@ -128,8 +117,6 @@
                 </div><!-- End .col-sm-6 col-md-4 -->
                 <!-- End .col-sm-6 col-md-4 -->
               </div><!-- End .row -->
-
-
             </div><!-- End .products -->
           </div><!-- End .col-lg-7 -->
           <!-- <div class="mb-lg-5"></div> -->

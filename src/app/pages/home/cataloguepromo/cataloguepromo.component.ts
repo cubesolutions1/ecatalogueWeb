@@ -3,7 +3,8 @@ import {Component, OnInit} from '@angular/core';
 import {Catalogue} from '../../../shared/Model/Catalogue';
 import {ApiService} from '../../../shared/services/api.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
-
+declare var require: any
+const FileSaver = require('file-saver');
 @Component({
   selector: 'app-cataloguepromo',
   templateUrl: './cataloguepromo.component.html',
@@ -153,15 +154,10 @@ export class CataloguepromoComponent implements OnInit {
   }
 
   
-  // addFavoris (catalogue){
-  //   console.log(catalogue,"catttttttttttttttttttttttttttttttttttttttt")
-  
-  //   this.apiSer.creerFav<orie(catalogue).subscribe(data =>{
-  //        console.log(data)
-  //    }
-     
-  //   )
-  //   }
+  // downloadCatalogue (catalogue) {
+  //   console.log(catalogue.pdf,"cattttttttttttttttttttttttttttDownnnnnnnnnnnnnn")
+  //   FileSaver.saveAs('/c/Users/Asus/Desktop/cubesolutions/ectalogueServeur/public/img/Catalogues/',catalogue.pdf);
+  // }
      
   
   clickevent(id, index) {
